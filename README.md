@@ -1,4 +1,4 @@
-# UGC.AI 🚀
+# UGC.AI
 
 An advanced AI-powered platform designed to transform static product photos into high-converting User-Generated Content (UGC) videos using Google's Gemini models.
 
