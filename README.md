@@ -2,10 +2,11 @@
 
 An advanced AI-powered platform designed to transform static product photos into high-converting User-Generated Content (UGC) videos using Google's Gemini models.
 
-![Gemini AI](https://img.shields.io/badge/AI-Google%20Gemini-blue?style=for-the-badge&logo=google-cloud)
-![React](https://img.shields.io/badge/Frontend-React%2019-61DAFB?style=for-the-badge&logo=react)
-![Node.js](https://img.shields.io/badge/Backend-Node.js-339933?style=for-the-badge&logo=nodedotjs)
-![Tailwind CSS](https://img.shields.io/badge/Styling-Tailwind%204-06B6D4?style=for-the-badge&logo=tailwindcss)
+![Gemini AI](https://img.shields.io/badge/AI-Google%20Gemini-blue.svg)
+![Tailwind CSS](https://img.shields.io/badge/Styling-Tailwind%204-06B6D4.svg)
+![License](https://img.shields.io/badge/license-MIT-blue.svg)
+![Node.js](https://img.shields.io/badge/Node.js-20.x-green.svg)
+![React](https://img.shields.io/badge/React-18.x-61dafb.svg)
 
 ## Features
 
