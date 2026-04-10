@@ -2,12 +2,14 @@ import Pricing from "../components/Pricing";
 
 export default function Plans() {
   return (
-    <div className="max-sm:py-10 sm:pt-20">
+    <div className="pt-32 pb-20 bg-zinc-50/20 min-h-screen">
       <Pricing />
-      <p className="text-center text-gray-400 max-w-md text-sm my-14 mx-auto px-12">
-        Create stunning images for just<span className='text-indigo-400 font-medium'>5 credits</span>
-        and generate immersive videos for <span className='text-indigo-400 font-medium'>10 credits</span>.
-      </p>
+      <div className="max-w-2xl mx-auto px-8">
+        <p className="text-center text-zinc-500 text-lg font-medium mt-16 leading-relaxed">
+          Create stunning images for just <span className='text-indigo-600 font-bold'>5 credits</span>
+          and generate immersive videos for <span className='text-indigo-600 font-bold'>10 credits</span>.
+        </p>
+      </div>
     </div>
   )
 }

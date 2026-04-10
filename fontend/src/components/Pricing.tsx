@@ -3,7 +3,7 @@ import { PricingTable } from '@clerk/clerk-react';
 
 export default function Pricing() {
   return (
-    <section id="pricing" className="py-20 bg-white/3 border-t border-white/6">
+    <section id="pricing" className="py-24 bg-zinc-50/50 border-y border-zinc-100">
       <div className="max-w-6xl mx-auto px-4">
 
         <Title
@@ -16,12 +16,16 @@ export default function Pricing() {
           <PricingTable
             appearance={{
               variables: {
-                colorBackground: 'none'
+                colorPrimary: '#4f46e5',
+                colorText: '#09090b',
+                colorBackground: '#ffffff',
+                borderRadius: '1.5rem',
               },
               elements: {
-                pricingTableCardBody: 'bg-white/6',
-                pricingTableCardHeader: 'bg-white/10',
-                switchThumb: 'bg-white'
+                pricingTableCard: 'border border-zinc-200 shadow-sm transition-shadow hover:shadow-md',
+                pricingTableCardHeader: 'bg-zinc-50 border-b border-zinc-100 p-8',
+                pricingTableButton: 'bg-indigo-600 hover:bg-indigo-700 text-white font-bold transition-all',
+                pricingTableCardBody: 'p-8',
               }
             }}
           />

@@ -2,7 +2,6 @@ import Navbar from './components/Navbar';
 import Home from './pages/Home';
 import SoftBackdrop from './components/SoftBackdrop';
 import Footer from './components/Footer';
-import LenisScroll from './components/lenis';
 import { Routes, Route } from 'react-router-dom';
 import Plans from './pages/Plans';
 import MyGenerations from './pages/MyGenerations';
@@ -16,12 +15,12 @@ function App() {
 		<>
 			<Toaster toastOptions={{
 				style: {
-					background: '#333',
-					color: '#fff',
+					background: '#fff',
+					color: '#333',
+					border: '1px solid #eee'
 				}
 			}} />
 			<SoftBackdrop />
-			<LenisScroll />
 			<Navbar />
 
 			<Routes>

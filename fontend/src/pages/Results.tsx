@@ -94,24 +94,24 @@ export default function Results() {
   }, [isGenerating])
 
   return loading ? (
-    <div className="h-screen w-full flex items-center justify-center">
-      <Loader2Icon className='animate-spin text-indigo- size-9' />
+    <div className="h-screen w-full flex items-center justify-center bg-white">
+      <Loader2Icon className='animate-spin text-indigo-600 size-12' />
     </div >
   ) : (
-    <div className="min-h-screen text-white p-6 md:p-12 mt-20">
-      <div className="max-w-6x] mx-auto">
-        <header className="flex justify-between items-center mb-8">
-          <h1 className="text-2xl md:text-3xl font-medium">Generation Result</h1>
-          <Link to="/generate" className="btn-secondary text-sm flex items-center gap-2">
-            <RefreshCwIcon className="w-4 h-4" />
-            <p className="max-sm:hidden'">New Generation</p>
+    <div className="min-h-screen p-6 md:p-12 mt-20 bg-white">
+      <div className="max-w-6xl mx-auto mb-20">
+        <header className="flex justify-between items-center mb-16">
+          <h1 className="text-3xl md:text-5xl font-bold tracking-tight text-zinc-900">Your Result</h1>
+          <Link to="/generate" className="btn-secondary text-sm flex items-center gap-2 shadow-sm">
+            <RefreshCwIcon className="size-4" />
+            <span className="max-sm:hidden font-bold uppercase tracking-wider text-[10px]">New Project</span>
           </Link>
         </header>
 
-        <div className="grid 1g:grid-cols-3 gap-8">
-          <div className="1g:col-span-2 space-y-6">
-            <div className="glass-panel inline-block p-2 rounded-2x]">
-              <div className={`${project?.aspectRatio === '9:16' ? 'aspect-9/16' : 'aspect-video'} sm:max-h-200 rounded-xl bg-gray-900 overflow-hidden relative`}>
+        <div className="grid lg:grid-cols-12 gap-12">
+          <div className="lg:col-span-8">
+            <div className="premium-card p-4 !rounded-[2.5rem] border-zinc-100 shadow-sm">
+              <div className={`${project?.aspectRatio === '9:16' ? 'aspect-[9/16]' : 'aspect-video'} max-h-[800px] rounded-[1.5rem] bg-zinc-50 overflow-hidden relative shadow-inner`}>
                 {project?.generatedVideo ? (
                   <video src={project.generatedVideo} controls autoPlay loop className="w-full h-full object-cover" />
                 ) : (
@@ -121,44 +121,40 @@ export default function Results() {
             </div>
           </div>
 
-          <div className="space-y-6">
-            <div className="glass-panel p-6 rounded-2x1">
-              <h3 className="text-xl font-semibold mb-4">Actions</h3>
-              <div className="flex flex-col gap-3">
-                <a href={project.generatedImage} download>
-                  <GhostButton disabled={!project.generatedImage} className="w-full justify-center rounded-md py-3 disabled:opacity-50 disabled:cursor-not-allowed">
-                    <ImageIcon className="size-4.5" /> Download Image
+          <div className="lg:col-span-4 space-y-8">
+            <div className="premium-card p-10 !rounded-[2.5rem] border-zinc-100 shadow-sm">
+              <h3 className="text-xl font-bold mb-8 text-zinc-900">Download Assets</h3>
+              <div className="flex flex-col gap-6">
+                <a href={project.generatedImage} download className="w-full">
+                  <GhostButton disabled={!project.generatedImage} className="w-full justify-center !rounded-2xl !py-5 font-bold disabled:opacity-50 text-sm">
+                    <ImageIcon className="size-5" /> Image HD
                   </GhostButton>
                 </a>
-                <a href={project.generatedVideo} download>
-                  <GhostButton disabled={!project.generatedVideo} className="w-full justify-center rounded-md py-3 disabled:opacity-50 disabled:cursor-not-allowed">
-                    <VideoIcon className="size-4.5" /> Download Video
+                <a href={project.generatedVideo} download className="w-full">
+                  <GhostButton disabled={!project.generatedVideo} className="w-full justify-center !rounded-2xl !py-5 font-bold disabled:opacity-50 text-sm">
+                    <VideoIcon className="size-5" /> Video 1080p
                   </GhostButton>
                 </a>
               </div>
             </div>
-          </div>
 
-          <div className="glass-panel p-6 rounded-2x] relative overflow-hidden">
-            <div className="absolute top-0 right-0 p-4 opacity-10">
-              <VideoIcon className="size-24" />
+            <div className="premium-card p-10 !rounded-[2.5rem] border-zinc-100 shadow-sm">
+              <h3 className="text-xl font-bold mb-4 text-zinc-900">AI Video Engine</h3>
+              <p className="text-zinc-500 text-sm mb-10 font-medium leading-relaxed">Our AI agents can animate this scene into a viral TikTok ad with cinematic motion. </p>
+              {!project.generatedVideo ? (
+                <PrimaryButton onClick={handleGenerateVideo} disabled={isGenerating} className="w-full !rounded-2xl !py-5 shadow-xl shadow-indigo-100 text-lg">
+                  {isGenerating ? (
+                    <><Loader2Icon className="size-6 animate-spin" /> Animating...</>
+                  ) : (
+                    <><SparkleIcon className="size-6" /> Animate Scene</>
+                  )}
+                </PrimaryButton>
+              ) : (
+                <div className="p-6 bg-emerald-50 border border-emerald-100 rounded-3xl text-emerald-700 text-center text-base font-bold shadow-sm">
+                  Video Rendered 🚀
+                </div>
+              )}
             </div>
-            <h3 className="text-xl font-semibold mb-2">Video Magic</h3>
-            <p className="text-gray-400 text-sm mb-6">Turn this static image into a dynamic video for social media. </p>
-            {!project.generatedVideo ? (
-              <PrimaryButton onClick={handleGenerateVideo} disabled={isGenerating}>
-                {isGenerating ? (
-                  <>Generating Video...</>
-                ) : (
-                  <><SparkleIcon className="size-4" /> Generate Video</>
-                )}
-                <SparkleIcon className="size-4" /> Generate Video
-              </PrimaryButton>
-            ) : (
-              <div className="p-3 bg-green-500/10 border border-green-500/20 rounded-xl text-green-400 text-center text-sm font-medium">
-                Video Generated Successfully!
-              </div>
-            )}
           </div>
         </div>
       </div>

@@ -1,19 +1,19 @@
 import logo from '../../public/assets/logo.svg';
-import product1 from '../../public/assets/product1.jpg'; // white watch
-import product2 from '../../public/assets/product2.jpg'; // polaroid camera
-import product3 from '../../public/assets/product3.jpg'; // sunglasses
-import product4 from '../../public/assets/product4.jpg'; // headphone
-import product5 from '../../public/assets/product5.jpg'; // speaker
-import product6 from '../../public/assets/product6.jpg'; // sneakers
-import product7 from '../../public/assets/product7.png'; // trolly bag
-import model1 from '../../public/assets/model1.png'; // model men
-import model2 from '../../public/assets/model2.jpg'; // model women
-import generated1 from '../../public/assets/generated1.png'; // men with trolly bag
-import generated2 from '../../public/assets/generated2.png'; // women with trolly bag
-import generated3 from '../../public/assets/generated3.png'; // men with shoes
-import generated4 from '../../public/assets/generated4.png'; // women with shoes
-import generatedVideo1 from '../../public/assets/generatedVideo1.mp4'; // random product men 9:16
-import generatedVideo2 from '../../public/assets/generatedVideo2.mp4'; // random product women 16:9
+import product1 from '../../public/assets/tests/product1.jpg'; // white watch
+import product2 from '../../public/assets/tests/product2.jpg'; // polaroid camera
+import product3 from '../../public/assets/tests/product3.jpg'; // sunglasses
+import product4 from '../../public/assets/tests/product4.jpg'; // headphone
+import product5 from '../../public/assets/tests/product5.jpg'; // speaker
+import product6 from '../../public/assets/tests/product6.jpg'; // sneakers
+import product7 from '../../public/assets/tests/product7.png'; // trolly bag
+import model1 from '../../public/assets/tests/model1.png'; // model men
+import model2 from '../../public/assets/tests/model2.jpg'; // model women
+import generated1 from '../../public/assets/tests/generated1.png'; // men with trolly bag
+import generated2 from '../../public/assets/tests/generated2.png'; // women with trolly bag
+import generated3 from '../../public/assets/tests/generated3.png'; // men with shoes
+import generated4 from '../../public/assets/tests/generated4.png'; // women with shoes
+import generatedVideo1 from '../../public/assets/tests/generatedVideo1.mp4'; // random product men 9:16
+import generatedVideo2 from '../../public/assets/tests/generatedVideo2.mp4'; // random product women 16:9
 
 export const assets = {
   logo,

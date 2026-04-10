@@ -1,11 +1,7 @@
 import { ChevronDownIcon } from 'lucide-react';
 import Title from './Title';
 import { faqData } from '../assets/dummy-data';
-import { useRef } from 'react';
-import { motion } from 'framer-motion';
-
 export default function Faq() {
-  const refs = useRef<(HTMLDetailsElement | null)[]>([]);
   return (
     <section id="faq" className="py-20 2xl:py-32">
       <div className="max-w-3xl mx-auto px-4">
@@ -16,33 +12,22 @@ export default function Faq() {
           description="Find answers to common questions about our AI generation technology and commercial usage."
         />
 
-        <div className="space-y-3">
+        <div className="space-y-4">
           {faqData.map((faq, i) => (
-            <motion.details
-              ref={(el) => {
-                refs.current[i] = el;
-              }}
-              initial={{ y: 100, opacity: 0 }}
-              whileInView={{ y: 0, opacity: 1 }}
-              viewport={{ once: true }}
-              transition={{ type: "spring", stiffness: 250, damping: 70, mass: 1, delay: 0.1 + i * 0.1 }}
+            <details
               key={i}
-              onAnimationComplete={() => {
-                const card = refs.current[i];
-                if (card) {
-                  card.classList.add("transition", "duration-300");
-                }
-              }}
-              className="group bg-white/6 rounded-xl select-none"
+              className="group premium-card rounded-3xl select-none overflow-hidden border-zinc-100 shadow-sm"
             >
-              <summary className="flex items-center justify-between p-4 cursor-pointer">
-                <h4 className="font-medium">{faq.question}</h4>
-                <ChevronDownIcon className="w-5 h-5 text-gray-300 group-open:rotate-180 transition-transform" />
+              <summary className="flex items-center justify-between p-8 cursor-pointer hover:bg-zinc-50 transition-colors">
+                <h4 className="font-bold text-xl text-zinc-900">{faq.question}</h4>
+                <div className="size-10 rounded-full bg-zinc-100 flex items-center justify-center group-open:bg-indigo-50 transition-colors">
+                  <ChevronDownIcon className="size-6 text-zinc-500 group-open:text-indigo-600 group-open:rotate-180 transition-transform" />
+                </div>
               </summary>
-              <p className="p-4 pt-0 text-sm text-gray-300 leading-relaxed">
+              <div className="px-8 pb-8 text-lg text-zinc-600 leading-relaxed font-medium">
                 {faq.answer}
-              </p>
-            </motion.details>
+              </div>
+            </details>
           ))}
         </div>
       </div>

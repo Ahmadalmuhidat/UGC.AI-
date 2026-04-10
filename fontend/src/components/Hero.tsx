@@ -2,7 +2,8 @@ import {
   ArrowRightIcon,
   PlayIcon,
   ZapIcon,
-  CheckIcon
+  CheckIcon,
+  SparkleIcon
 } from 'lucide-react';
 import {
   PrimaryButton,
@@ -17,198 +18,187 @@ export default function Hero() {
     'https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?w=50',
     'https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=50&h=50&fit=crop'
   ];
-  const mainImageUrl = 'https://images.unsplash.com/photo-1576267423445-b2e0074d68a4?q=80&w=1600&auto=format&fit=crop';
+  const mainImageUrl = '/assets/hero.png';
   const galleryStripImages = [
-    'https://images.unsplash.com/photo-1542744173-8e7e53415bb0?q=80&w=100',
-    'https://images.unsplash.com/photo-1517048676732-d65bc937f952?q=80&w=100',
-    'https://images.unsplash.com/photo-1553877522-43269d4ea984?q=80&w=100',
+    '/assets/tests/product1.jpg',
+    '/assets/tests/product2.jpg',
+    '/assets/tests/product3.jpg',
   ];
   const trustedLogosText = [
-    'Startups',
-    'Scale-ups',
-    'Founders',
-    'Global teams',
-    'Creative brands'
+    'Shopify Plus',
+    'Amazon FBA',
+    'TikTok Shop',
+    'Instagram Business',
+    'DTC Brands'
   ];
 
   return (
     <>
       <section id="home" className="relative z-10">
-        <div className="max-w-6xl mx-auto px-4 min-h-screen max-md:w-screen max-md:overflow-hidden pt-32 md:pt-26 flex items-center justify-center">
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-10 items-center">
+        <div className="max-w-6xl mx-auto px-4 min-h-[90vh] pt-32 md:pt-40 flex items-center justify-center">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-16 items-center">
             <div className="text-left">
-              <motion.a href="#" className="inline-flex items-center gap-3 pl-3 pr-4 py-1.5 rounded-full bg-white/5 border border-white/10 mb-8 hover:bg-white/10 transition-colors"
-                initial={{ y: 20, opacity: 0 }}
-                whileInView={{ y: 0, opacity: 1 }}
+              <motion.div className="inline-flex items-center gap-3 pl-3 pr-4 py-2 rounded-full bg-indigo-50/50 border border-indigo-100 mb-8 hover:bg-indigo-50 transition-colors shadow-sm"
+                initial={{ opacity: 0 }}
+                whileInView={{ opacity: 1 }}
                 viewport={{ once: true }}
-                transition={{ type: "spring", stiffness: 250, damping: 70, mass: 1 }}
+                transition={{ duration: 0.5 }}
               >
                 <div className="flex -space-x-2">
                   {trustedUserImages.map((src, i) => (
                     <img
                       key={i}
                       src={src}
-                      alt={`Client ${i + 1}`}
-                      className="size-6 rounded-full border-2 border-gray-900"
+                      alt={`Member ${i + 1}`}
+                      className="size-6 rounded-full border-2 border-white shadow-sm"
                       width={40}
                       height={40}
                     />
                   ))}
                 </div>
                 <div className="flex items-center gap-2">
-                  <div className="flex gap-0.5">
-                    {[1, 2, 3, 4, 5].map((s) => <div key={s} className="size-1 rounded-full bg-yellow-500" />)}
-                  </div>
-                  <span className="text-[10px] uppercase tracking-wider font-bold text-gray-300">
-                    Trusted by 10K+ creators
+                  <span className="text-[10px] uppercase tracking-widest font-black text-indigo-600">
+                    Trusted by 12,000+ DTC Brands
                   </span>
                 </div>
-              </motion.a>
+              </motion.div>
 
-              <motion.h1 className="text-5xl md:text-7xl font-bold leading-[1.1] mb-6 tracking-tight"
-                initial={{ y: 20, opacity: 0 }}
-                whileInView={{ y: 0, opacity: 1 }}
+              <motion.h1 className="text-5xl md:text-7xl font-black leading-[1.05] mb-8 tracking-tight text-zinc-900"
+                initial={{ opacity: 0 }}
+                whileInView={{ opacity: 1 }}
                 viewport={{ once: true }}
-                transition={{ type: "spring", stiffness: 250, damping: 70, mass: 1, delay: 0.1 }}
+                transition={{ duration: 0.5, delay: 0.1 }}
               >
-                Create viral UGC<br />
-                <span className="text-gradient">
-                  in seconds
+                Turn product photos into <br />
+                <span className="text-indigo-600 italic">
+                  viral video ads.
                 </span>
               </motion.h1>
 
-              <motion.p className="text-gray-400 text-lg max-w-lg mb-10 leading-relaxed"
-                initial={{ y: 20, opacity: 0 }}
-                whileInView={{ y: 0, opacity: 1 }}
+              <motion.p className="text-zinc-600 text-xl max-w-lg mb-12 leading-relaxed font-medium"
+                initial={{ opacity: 0 }}
+                whileInView={{ opacity: 1 }}
                 viewport={{ once: true }}
-                transition={{ type: "spring", stiffness: 250, damping: 70, mass: 1, delay: 0.2 }}
+                transition={{ duration: 0.5, delay: 0.2 }}
               >
-                Upload product images and a model photo - our AI instantly generates professional lifestyle
-                imagery and short-form videos optimized for Reels & TikTok.
+                Our AI agents analyze your products and instantly generate cinematic UGC videos optimized for TikTok, Reels, and Meta Ads. No studio required.
               </motion.p>
 
-              <motion.div className="flex flex-col sm:flex-row items-center gap-4 mb-12"
-                initial={{ y: 20, opacity: 0 }}
-                whileInView={{ y: 0, opacity: 1 }}
+              <motion.div className="flex flex-col sm:flex-row items-center gap-5 mb-14"
+                initial={{ opacity: 0 }}
+                whileInView={{ opacity: 1 }}
                 viewport={{ once: true }}
-                transition={{ type: "spring", stiffness: 250, damping: 70, mass: 1, delay: 0.3 }}
+                transition={{ duration: 0.5, delay: 0.3 }}
               >
                 <Link to="/generate" className="w-full sm:w-auto">
-                  <PrimaryButton className="w-full sm:w-auto">
-                    Start generating
-                    <ArrowRightIcon className="size-4 group-hover:translate-x-1 transition-transform" />
+                  <PrimaryButton className="w-full sm:w-auto !py-4.5 !px-10 text-lg shadow-xl shadow-indigo-100">
+                    Get Started Free
+                    <ArrowRightIcon className="size-5 group-hover:translate-x-1 transition-transform" />
                   </PrimaryButton>
                 </Link>
 
-                <GhostButton className="w-full sm:w-auto justify-center">
-                  <PlayIcon className="size-4 fill-white/20" />
-                  Watch demo
+                <GhostButton className="w-full sm:w-auto justify-center !py-4.5 !px-10 border-zinc-200">
+                  <PlayIcon className="size-5 fill-zinc-900 text-zinc-900" />
+                  See Examples
                 </GhostButton>
               </motion.div>
 
-              <motion.div className="flex sm:inline-flex items-center gap-8 text-sm text-gray-400"
-                initial={{ y: 20, opacity: 0 }}
-                whileInView={{ y: 0, opacity: 1 }}
+              <motion.div className="flex flex-wrap items-center gap-x-10 gap-y-6 text-sm text-zinc-400 font-bold"
+                initial={{ opacity: 0 }}
+                whileInView={{ opacity: 1 }}
                 viewport={{ once: true }}
-                transition={{ type: "spring", stiffness: 250, damping: 70, mass: 1, delay: 0.4 }}
+                transition={{ duration: 0.5, delay: 0.4 }}
               >
                 <div className="flex items-center gap-2">
-                  <ZapIcon className="size-4 text-indigo-400" />
-                  <span>Blitz Fast Generation</span>
+                  <ZapIcon className="size-5 text-indigo-600" />
+                  <span>Render in 60s</span>
                 </div>
                 <div className="flex items-center gap-2">
-                  <CheckIcon className="size-4 text-emerald-400" />
-                  <span>Commercial Rights</span>
+                  <CheckIcon className="size-5 text-emerald-600" />
+                  <span>No Subscription Needed</span>
                 </div>
               </motion.div>
             </div>
 
-            {/* Right: modern mockup card */}
+            {/* Right: Premium mock-up using hero.png */}
             <motion.div className="relative group"
-              initial={{ opacity: 0, scale: 0.9 }}
-              whileInView={{ opacity: 1, scale: 1 }}
+              initial={{ opacity: 0 }}
+              whileInView={{ opacity: 1 }}
               viewport={{ once: true }}
-              transition={{ type: "spring", stiffness: 250, damping: 70, mass: 1, delay: 0.5 }}
+              transition={{ duration: 0.8, delay: 0.5 }}
             >
-              <div className="absolute -inset-4 bg-indigo-500/10 blur-3xl rounded-full opacity-0 group-hover:opacity-100 transition-opacity" />
-              <motion.div className="glass-panel !rounded-3xl border-white/10 overflow-hidden shadow-2xl transition-transform duration-500 group-hover:-rotate-1 group-hover:scale-[1.02]">
-                <div className="relative aspect-16/10 bg-gray-900">
+              <div className="relative premium-card !rounded-[2.5rem] border-zinc-100 overflow-hidden shadow-[0_32px_64px_-12px_rgba(0,0,0,0.08)] transition-all duration-700 hover:shadow-[0_32px_64px_-12px_rgba(79,70,229,0.12)]">
+                <div className="relative aspect-[4/5] md:aspect-[3/4] bg-zinc-50">
                   <img
                     src={mainImageUrl}
-                    alt="agency-work-preview"
-                    className="w-full h-full object-cover object-center brightness-90 group-hover:brightness-100 transition-all"
+                    alt="AI Ad Platform Preview"
+                    className="w-full h-full object-cover object-center"
                   />
 
-                  <div className="absolute left-6 top-6 px-4 py-2 rounded-full bg-black/40 backdrop-blur-md border border-white/10 text-[10px] font-bold uppercase tracking-widest text-white">
-                    Social-ready . 9:16 & 16:9
-                  </div>
-
-                  <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity">
-                    <div className="size-16 rounded-full bg-white/10 backdrop-blur-xl border border-white/20 flex items-center justify-center">
-                      <PlayIcon className="size-6 fill-white" />
-                    </div>
+                  {/* High-end floating overlay */}
+                  <div className="absolute bottom-8 left-8 right-8 p-6 rounded-3xl bg-white/90 backdrop-blur-xl border border-white/50 shadow-2xl">
+                     <div className="flex items-center justify-between mb-4">
+                        <div className="flex items-center gap-3">
+                           <div className="size-10 rounded-full bg-indigo-600 flex items-center justify-center">
+                              <SparkleIcon className="size-5 text-white" />
+                           </div>
+                           <div>
+                              <p className="text-[10px] font-black uppercase tracking-widest text-zinc-400">Processing Status</p>
+                              <p className="text-sm font-black text-zinc-900">AI Scripting Complete</p>
+                           </div>
+                        </div>
+                        <div className="px-3 py-1 rounded-full bg-emerald-100 text-emerald-700 text-[10px] font-black uppercase">Ready</div>
+                     </div>
+                     <div className="w-full h-1.5 bg-zinc-100 rounded-full overflow-hidden">
+                        <div className="w-full h-full bg-indigo-600 rounded-full" />
+                     </div>
                   </div>
                 </div>
-              </motion.div>
+              </div>
 
-              <div className="mt-4 flex gap-3 items-center justify-start">
+              {/* Smaller secondary assets */}
+              <div className="mt-8 flex gap-4 items-center justify-start">
                 {galleryStripImages.map((src, i) => (
                   <motion.div
                     key={i}
-                    initial={{ y: 20, opacity: 0 }}
-                    whileInView={{ y: 0, opacity: 1 }}
+                    initial={{ opacity: 0 }}
+                    whileInView={{ opacity: 1 }}
                     viewport={{ once: true }}
-                    transition={{ type: "spring", stiffness: 250, damping: 70, mass: 1, delay: 0.1 + i * 0.1 }}
-                    className="w-14 h-10 rounded-lg overflow-hidden border border-white/6"
+                    transition={{ duration: 0.5, delay: 0.6 + i * 0.1 }}
+                    className="w-20 h-16 rounded-2xl overflow-hidden border-2 border-zinc-100 shadow-sm transition-transform hover:-translate-y-1"
                   >
                     <img
                       src={src}
-                      alt="project-thumbnail"
-                      className="w-full h-full object-cover"
+                      alt="Product input"
+                      className="w-full h-full object-cover opacity-80"
                     />
                   </motion.div>
                 ))}
-                <motion.div className="text-sm text-gray-400 ml-2 flex items-center gap-2"
-                  initial={{ y: 60, opacity: 0 }}
-                  whileInView={{ y: 0, opacity: 1 }}
-                  viewport={{ once: true }}
-                  transition={{ type: "spring", stiffness: 250, damping: 70, mass: 1, delay: 0.2 }}
-                >
-                  <div className="relative flex h-3.5 w-3.5 items-center justify-center">
-                    <span className="absolute inline-flex h-full w-full rounded-full bg-green-400 opacity-75 animate-ping duration-300" />
-
-                    <span className="relative inline-flex size-2 rounded-full bg-green-600" />
-                  </div>
-                  20+ more
-                </motion.div>
+                <div className="text-sm text-zinc-400 font-black ml-2 uppercase tracking-tighter">
+                  + 2,400 datasets
+                </div>
               </div>
             </motion.div>
           </div>
         </div>
       </section>
 
-      {/* LOGO MARQUEE */}
-      <motion.section className="border-y border-white/6 bg-white/1 max-md:mt-10"
-        initial={{ y: 60, opacity: 0 }}
-        whileInView={{ y: 0, opacity: 1 }}
-        viewport={{ once: true }}
-        transition={{ type: "spring", stiffness: 250, damping: 70, mass: 1 }}
-      >
+      {/* TRUSTED PLATFORMS */}
+      <section className="border-y border-zinc-100 bg-zinc-50/20 py-16">
         <div className="max-w-6xl mx-auto px-6">
-          <div className="w-full overflow-hidden py-6">
-            <div className="flex gap-14 items-center justify-center animate-marquee whitespace-nowrap">
-              {trustedLogosText.concat(trustedLogosText).map((logo, i) => (
-                <span
-                  key={i}
-                  className="mx-6 text-sm md:text-base font-semibold text-gray-400 hover:text-gray-300 tracking-wide transition-colors"
-                >
-                  {logo}
-                </span>
-              ))}
-            </div>
+          <p className="text-center text-[10px] font-black uppercase tracking-[0.3em] text-zinc-400 mb-10">Optimized for every platform</p>
+          <div className="flex flex-wrap gap-12 md:gap-24 items-center justify-center grayscale opacity-40 hover:grayscale-0 hover:opacity-100 transition-all duration-500">
+            {trustedLogosText.map((logo, i) => (
+              <span
+                key={i}
+                className="text-lg md:text-xl font-black text-zinc-900 tracking-tighter"
+              >
+                {logo}
+              </span>
+            ))}
           </div>
         </div>
-      </motion.section>
+      </section>
     </>
   );
-};
+}

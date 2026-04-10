@@ -38,13 +38,13 @@ export default function ProjectCard({ gen, setGenerations }: { gen: Project; set
 
   return (
     <div key={gen.id} className="mb-4 break-inside-avoid">
-      <div className="bg-white/5 border border-white/10 rounded-xl overflow-hidden hover: border-white/20 transition group">
-        <div className={`${gen?.aspectRatio === '9:16' ? 'aspect-9/16' : 'aspect-video'} relative overflow-hidden`}>
+      <div className="premium-card rounded-3xl overflow-hidden group">
+        <div className={`${gen?.aspectRatio === '9:16' ? 'aspect-9/16' : 'aspect-video'} relative overflow-hidden bg-zinc-100`}>
           {gen.generatedImage && (
             <img
               src={gen.generatedImage}
               alt={gen.productName}
-              className={`absolute inset-0 w-full h-full object-cover transition duration-500 ${gen.generatedVideo ? 'group-hover:opacity-0' : 'group-hover:scale-105'}`} />
+              className={`absolute inset-0 w-full h-full object-cover transition duration-700 ${gen.generatedVideo ? 'group-hover:opacity-0' : 'group-hover:scale-110'}`} />
           )}
 
           {gen.generatedVideo && (
@@ -53,97 +53,86 @@ export default function ProjectCard({ gen, setGenerations }: { gen: Project; set
               muted
               loop
               playsInline
-              className="absolute inset-0 w-full h-full object-cover opacity-0 group-hover:opacity-100 transition duration-500"
+              className="absolute inset-0 w-full h-full object-cover opacity-0 group-hover:opacity-100 transition duration-700"
               onMouseEnter={(e) => e.currentTarget.play()}
               onMouseLeave={(e) => e.currentTarget.pause()} />
           )}
 
           {!gen.generatedImage && !gen.generatedVideo && (
-            <div className="absolute inset-0 w-full h-full flex flex-col items-center justify-center bg-black/20">
-              <Loader2Icon className="size-7 animate-spin" />
+            <div className="absolute inset-0 w-full h-full flex flex-col items-center justify-center bg-zinc-900/10 backdrop-blur-sm">
+              <Loader2Icon className="size-10 animate-spin text-indigo-600" />
             </div>
           )}
 
-          <div className="absolute left-3 top-3 flex gap-2 items-center">
+          <div className="absolute left-4 top-4 flex gap-2 items-center">
             {gen.isGenerating && (
-              <span className="text-xs px-2 py-1 bg-yellow-600/30 rounded-full">Generating</span>
+              <span className="text-[10px] font-bold px-3 py-1 bg-amber-100 text-amber-700 border border-amber-200 rounded-full shadow-sm">Generating</span>
             )}
-
           </div>
 
-          <div onMouseUpCapture={() => setMenuOpen(true)} onMouseLeave={() => setMenuOpen(false)} className="absolute right-3 top-3 sm:opacity-0 group-hover:opacity-100 transition flex items-center gap-2">
-            <div className="absolute top-3 right-3">
-              <EllipsisIcon className="ml-auto bg-black/10 rounded-full p-1 size-7" />
-            </div>
-            <div className="flex flex-col items-end w-32 text-sm">
-              <ul className={`text-xs ${menuOpen ? 'block' : 'hidden'} verflow-hidden right-0 peer-focus:block hover:block w-40 bg-black/50 backdrop-blur text-white border border-gray-500/ 50 rounded-1g shadow-md mt-2 py-1 z-10`}>
+          <div className="absolute right-4 top-4 sm:opacity-0 group-hover:opacity-100 transition-all duration-300 z-20">
+            <div onMouseEnter={() => setMenuOpen(true)} onMouseLeave={() => setMenuOpen(false)} className="relative">
+              <button className="bg-white/90 backdrop-blur-md rounded-full p-2 text-zinc-900 shadow-lg border border-zinc-100 hover:bg-white transition-colors">
+                <EllipsisIcon className="size-5" />
+              </button>
+              
+              <div className={`absolute top-full right-0 mt-2 w-48 bg-white rounded-2xl shadow-2xl border border-zinc-100 overflow-hidden py-1 transition-all duration-300 origin-top-right ${menuOpen ? 'scale-100 opacity-100 visible' : 'scale-95 opacity-0 invisible'}`}>
                 {gen.generatedImage && (
-                  <a href="#" download className="flex gap-2 items-center px-4 py-2 hover:bg-black/10 cursor-pointer"><ImageIcon size={14} />Download Image</a>)
-                }
-
+                  <a href={gen.generatedImage} download className="flex gap-3 items-center px-4 py-3 text-xs font-bold text-zinc-700 hover:bg-zinc-50 transition-colors">
+                    <ImageIcon size={16} className="text-zinc-400" /> Download Image
+                  </a>
+                )}
                 {gen.generatedVideo && (
-                  <a href="#" download className="flex gap-2 items-center px-4 py-2 hover:bg-black/10 cursor-pointer"><PlaySquareIcon size={14} />Download Video</a>)
-                }
-
-                {gen.generatedVideo && (
-                  <a href="#" download className="flex gap-2 items-center px-4 py-2 hover:bg-black/10 cursor-pointer"><PlaySquareIcon size={14} />Download Video</a>)
-                }
-
-                <button onClick={() => handleDelete(gen.id)} className="w-full flex gap-2 items-center px-4 py-2 hover:bg-red-950/10 text-red-400 cursor-pointer">
-                  <TrashIcon size={14} /> Delete
+                  <a href={gen.generatedVideo} download className="flex gap-3 items-center px-4 py-3 text-xs font-bold text-zinc-700 hover:bg-zinc-50 transition-colors">
+                    <PlaySquareIcon size={16} className="text-zinc-400" /> Download Video
+                  </a>
+                )}
+                <button onClick={() => handleDelete(gen.id)} className="w-full flex gap-3 items-center px-4 py-3 text-xs font-bold text-red-600 hover:bg-red-50 transition-colors">
+                  <TrashIcon size={16} /> Delete Project
                 </button>
-              </ul>
-            </div>
-          </div>
-
-          <div className="absolute right-3 bottom-3">
-            <img src={gen.uploadedImages[0]} alt="product" className="w-16 h-16 object-cover rounded-full animate-float " />
-            <img src={gen.uploadedImages[1]} alt="model" className="w-16 h-16 object-cover rounded-full animate-float animate-float -ml-8" style={{ animationDelay: '3s' }} />
-          </div>
-        </div>
-
-        <div className="p-4">
-          <div className="flex items-start justify-between gap-4">
-            <div className="flex-1">
-              <h3 className="font-medium text-lg mb-1">{gen.productName}</h3>
-              <p className="text-sm text-gray-400">Created: {new Date(gen.createdAt).toLocaleString()}</p>
-              {gen.updatedAt && (
-                <p className="text-xs text-gray-500 mt-1">Updated: {new Date(gen.updatedAt).toLocaleString()}</p>
-              )}
-            </ div>
-            <div className="text-right">
-              <div className="mt-2 flex flex-col items-end gap-1">
-                <span className="text-xs px-2 py-1 bg-white/5 rounded-full" >Aspect: {gen.aspectRatio}</span>
               </div>
             </div>
           </div>
+
+          <div className="absolute right-4 bottom-4 flex -space-x-4">
+             {gen.uploadedImages.map((img, i) => (
+                <img key={i} src={img} alt="upload" className="w-14 h-14 object-cover rounded-2xl border-4 border-white shadow-xl" />
+             ))}
+          </div>
+        </div>
+
+        <div className="p-6">
+          <div className="flex items-start justify-between gap-4 mb-4">
+            <div className="flex-1 min-w-0">
+              <h3 className="font-bold text-xl text-zinc-900 truncate mb-1">{gen.productName}</h3>
+              <p className="text-xs text-zinc-500 font-semibold uppercase tracking-wider">
+                {new Date(gen.createdAt).toLocaleDateString(undefined, { month: 'short', day: 'numeric', year: 'numeric' })}
+              </p>
+            </div>
+            <div className="flex-shrink-0">
+               <span className="text-[10px] font-bold px-3 py-1 bg-zinc-50 text-zinc-600 border border-zinc-100 rounded-full shadow-sm uppercase tracking-widest">{gen.aspectRatio}</span>
+            </div>
+          </div>
+
           {gen.productDescription && (
-            <div className="mt-3" >
-              <p className="text-xs text-gray-400 mb-1">Description</p>
-              <div className="text-sm text-gray-300 bg-white/3 p-2 rounded-md wrap-break-word">{gen.productDescription}</div>
+            <div className="mb-4" >
+              <p className="text-[10px] uppercase tracking-widest font-bold text-zinc-400 mb-2">Description</p>
+              <div className="text-sm text-zinc-600 line-clamp-2 leading-relaxed font-medium">{gen.productDescription}</div>
             </div>
           )}
 
-          {gen.userPrompt && (
-            <div className="mt-3" >
-              <p className="text-xs text-gray-400 mb-1">Prompt</p>
-              <div className="text-sm text-gray-300 bg-white/3 p-2 rounded-md wrap-break-word">{gen.userPrompt}</div>
-            </div>
-          )}
-
-          <div className="mt-4 grid grid-cols-2 gap-3">
+          <div className="mt-6 flex gap-3">
             <GhostButton
-              className="text-xs justify-center"
+              className="text-xs px-6 py-3 w-full justify-center !rounded-xl font-bold"
               onClick={() => {
-                navigate(`/result/${gen.id}`);
+                navigate(`/results/${gen.id}`);
                 scrollTo(0, 0)
               }}>
-              View Details
+              View Full Details
             </GhostButton >
           </div>
         </div>
       </div>
     </div >
-
   )
 }
